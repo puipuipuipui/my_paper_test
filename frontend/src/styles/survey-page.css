@@ -1,0 +1,94 @@
+/* survey-page.css - 可以加入到現有的 CSS 文件或創建新文件 */
+
+/* 問卷調查頁面樣式 */
+.survey-card {
+    transition: transform 0.3s, box-shadow 0.3s;
+    transform: translateY(0);
+  }
+  
+  .survey-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  /* 填寫問卷按鈕 */
+  .survey-actions button {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .survey-actions button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transition: left 0.7s;
+  }
+  
+  .survey-actions button:hover::before {
+    left: 100%;
+  }
+  
+  /* 圓形圖標動畫 */
+  .survey-icon {
+    animation: pulse 2s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(24, 144, 255, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(24, 144, 255, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(24, 144, 255, 0);
+    }
+  }
+  
+  /* 倒數計時區域 */
+  .timer-section {
+    transition: background-color 0.3s;
+  }
+  
+  .timer-section:hover {
+    background-color: rgba(0, 0, 0, 0.04);
+  }
+  
+  /* 完成測試按鈕 */
+  button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+  }
+  
+  button:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  /* 響應式調整 */
+  @media (max-width: 1000px) {
+    .content-container {
+      padding: 0 16px;
+    }
+    
+    .survey-card {
+      margin-bottom: 16px;
+    }
+    
+    .survey-card .ant-card-body {
+      padding: 20px !important;
+    }
+    
+    .survey-actions button {
+      width: 100%;
+    }
+  }

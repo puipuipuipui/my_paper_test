@@ -1,0 +1,418 @@
+/* 全局樣式 */
+:root {
+  --primary-color: #1890ff;
+  --success-color: #52c41a;
+  --warning-color: #faad14;
+  --error-color: #f5222d;
+  --background-color: #f0f2f5;
+  --text-color: #333333;
+  --text-color-secondary: #666666;
+  --border-radius: 8px;
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* 基本元素樣式 */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  margin: 0;
+  padding: 0;
+}
+
+/* 頁面布局 */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+}
+
+.app-content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.content-wrapper {
+  width: 100%;
+  max-width: 1200px;
+}
+
+/* 頁頭樣式 */
+.header {
+  background-color: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  padding: 10px 24px;
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+}
+
+/* 頁尾樣式 */
+.footer {
+  background-color: #333;
+  color: white;
+  padding: 16px 24px;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  color: #aaaaaa;
+}
+
+/* 通用元素樣式 */
+.text-center {
+  text-align: center;
+}
+
+.mb-2 {
+  margin-bottom: 8px;
+}
+
+.mb-4 {
+  margin-bottom: 16px;
+}
+
+.mb-6 {
+  margin-bottom: 24px;
+}
+
+.mb-8 {
+  margin-bottom: 8px;
+}
+
+.mt-2 {
+  margin-top: 8px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.mt-6 {
+  margin-top: 24px;
+}
+
+.mt-12 {
+  margin-top: 48px;
+}
+
+.p-8 {
+  padding: 32px;
+}
+
+/* 容器樣式 */
+.content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.wide-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* 測試詞樣式更新 */
+/* 測試詞容器，用於置中測試詞 */
+.test-word-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  min-height: 120px;
+  /* 提供足夠的高度使詞語顯示更加突出 */
+}
+
+.test-word {
+  font-size: 2.5rem;
+  /* 增大字體 */
+  font-weight: bold;
+  padding: 1.5rem 3rem;
+  /* 更大的內邊距 */
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  text-align: center;
+  /* 確保文字本身也居中 */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  /* 輕微陰影增強視覺效果 */
+  min-width: 200px;
+  /* 確保有最小寬度 */
+}
+
+.test-word.correct {
+  background-color: rgba(82, 196, 26, 0.1);
+  border: 1px solid rgba(82, 196, 26, 0.3);
+}
+
+.test-word.incorrect {
+  background-color: rgba(245, 34, 45, 0.1);
+  border: 1px solid rgba(245, 34, 45, 0.3);
+}
+
+.text-lg {
+  font-size: 1.1rem;
+}
+
+/* 測試進度樣式更新 */
+.test-progress {
+  margin-top: 1.5rem;
+  text-align: center;
+  color: var(--text-color-secondary);
+  font-size: 1rem;
+}
+
+/* 分類標籤樣式 */
+.categories-container {
+  display: flex;
+  justify-content: center;
+  gap: 96px;
+  width: 100%;
+  margin-bottom: 32px;
+}
+
+.category-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.key-hint {
+  text-align: center;
+  padding: 8px 32px;
+  background-color: #f5f5f5;
+  border-radius: var(--border-radius);
+}
+
+.key-hint-text {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-color-secondary);
+}
+
+.categories-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.category-label {
+  text-align: center;
+  padding: 12px 48px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  border: 1px solid #e8e8e8;
+  transition: all 0.3s;
+}
+
+.category-label:hover {
+  border-color: var(--primary-color);
+}
+
+.category-text {
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+/* 按鈕樣式 */
+/* 添加到您現有的 main.css 中 */
+
+/* 按鈕容器置中 */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+/* 確保 text-center 類也影響到按鈕 */
+.text-center {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* 針對 Ant Design 按鈕的額外樣式覆蓋 */
+.ant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-button {
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  padding: 8px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s;
+}
+
+.large-button {
+  height: 48px;
+  padding: 0 32px;
+  font-size: 1.125rem;
+  white-space: nowrap;
+}
+
+/* 影片容器 */
+.video-container {
+  aspect-ratio: 16 / 9;
+  margin-bottom: 32px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.video-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* 圖表容器 */
+.chart-container {
+  height: 400px;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+/* 首頁圖片 */
+.hero-image {
+  width: 100%;
+  margin-bottom: 32px;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  object-fit: cover;
+  object-position: top;
+}
+
+/* 調查頁面圖片 */
+.survey-image {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 24px;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* 自定義結果頁面樣式 */
+.custom-result {
+  max-width: 900px; /* 設定最大寬度 */
+  margin: 0 auto; /* 水平置中 */
+  width: 100%; /* 確保在小螢幕上能夠填滿可用空間 */
+  box-sizing: border-box; /* 確保 padding 不會增加元素寬度 */
+  padding: 48px 32px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: all 0.3s ease; /* 平滑過渡效果 */
+}
+
+/* 針對不同螢幕尺寸的響應式調整 */
+@media (max-width: 768px) {
+  .custom-result {
+    max-width: 90%; /* 在小螢幕上稍微縮小最大寬度 */
+    padding: 32px 24px; /* 減少 padding */
+  }
+}
+
+@media (max-width: 480px) {
+  .custom-result {
+    max-width: 100%; /* 在非常小的螢幕上使用全寬 */
+    padding: 24px 16px; /* 進一步減少 padding */
+  }
+}
+
+.custom-result .icon-container {
+  margin-bottom: 24px;
+}
+
+.custom-result .success-icon {
+  font-size: 72px;
+  color: var(--success-color);
+}
+
+.custom-result .result-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: rgba(0, 0, 0, 0.85);
+  margin: 0 0 16px;
+}
+
+.custom-result .result-subtitle {
+  font-size: 14px;
+  color: rgba(0, 0, 0, 0.45);
+  margin-bottom: 24px;
+}
+
+.custom-result .result-extra {
+  margin-top: 32px;
+}
+
+/* 允許換行的文本 */
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+/* 更新 text-base 類以增加字體大小 */
+.text-base {
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* 為指導說明定制樣式 */
+.instruction-modal .ant-modal-body {
+  padding: 24px 32px;
+}
+
+.instruction-modal .ant-typography {
+  margin-bottom: 16px;
+}
+
+/* 強調重要文本 */
+.instruction-emphasis {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+/* 為按鍵指示添加特殊樣式 */
+.key-instruction {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  border: 1px solid #d9d9d9;
+  font-family: monospace;
+  margin: 0 2px;
+}
+
+/* 優化列表项樣式 */
+.instruction-list {
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+.instruction-list li {
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
