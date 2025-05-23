@@ -7,7 +7,7 @@ const isLocalhost = window.location.hostname === 'localhost' ||
 
 const API_BASE_URL = isLocalhost 
   ? 'http://localhost:5000/api'  // 開發環境
-  : '/api';  // 生產環境使用相對路徑
+  : 'https://gender-bias-test-backend.onrender.com/api';  // 生產環境使用相對路徑
 
 // 定義測試結果資料介面
 interface TestResultData {
