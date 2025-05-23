@@ -1,13 +1,14 @@
 // frontend/src/utils/api.ts
 import { TestResults } from '../types/testTypes';
 
-// 最簡單的解決方案：直接判斷當前域名
-const isLocalhost = window.location.hostname === 'localhost' || 
-                   window.location.hostname === '127.0.0.1';
+// 在文件頂部添加這些聲明
+declare var window: any;
+declare var navigator: any;
+declare var localStorage: any;
+declare var console: any;
 
-const API_BASE_URL = isLocalhost 
-  ? 'http://localhost:5000/api'  // 開發環境
-  : 'https://gender-bias-test-backend.onrender.com/api';  // 生產環境使用相對路徑
+// 直接使用後端完整 URL
+const API_BASE_URL = 'https://你的後端服務名稱.onrender.com/api';  // 替換為你的實際後端 URL
 
 // 定義測試結果資料介面
 interface TestResultData {
@@ -37,13 +38,17 @@ export async function saveTestResults(data: TestResultData): Promise<any> {
       localStorage.setItem('userId', userId);
     }
     
-    // 收集裝置資訊
+    // 收集裝置資訊 - 安全地訪問瀏覽器 API
     const deviceInfo = {
-      browser: navigator.userAgent,
-      language: navigator.language,
-      screenSize: `${window.screen.width}x${window.screen.height}`,
-      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-      platform: navigator.platform
+      browser: typeof navigator !== 'undefined' ? navigator.userAgent : 'Unknown',
+      language: typeof navigator !== 'undefined' ? navigator.language : 'Unknown',
+      screenSize: typeof window !== 'undefined' && window.screen 
+        ? `${window.screen.width}x${window.screen.height}` 
+        : 'Unknown',
+      timezone: typeof Intl !== 'undefined' 
+        ? Intl.DateTimeFormat().resolvedOptions().timeZone 
+        : 'Unknown',
+      platform: typeof navigator !== 'undefined' ? navigator.platform : 'Unknown'
     };
     
     // 準備要發送的資料
