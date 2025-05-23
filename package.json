@@ -3,12 +3,18 @@
     "version": "1.0.0",
     "description": "性別與商品偏見測試應用",
     "scripts": {
-      "frontend": "cd frontend && npm start",
-      "backend": "cd backend && npm run dev",
-      "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
-      "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
+        "frontend": "cd frontend && npm start",
+        "backend": "cd backend && npm run dev",
+        "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+        "install-all": "npm install && cd frontend && npm install && cd ../backend && npm install"
     },
     "devDependencies": {
-      "concurrently": "^8.2.0"
+        "concurrently": "^8.2.0"
+    },
+    "dependencies": {
+        "cors": "^2.8.5",
+        "dotenv": "^16.5.0",
+        "express": "^5.1.0",
+        "mongoose": "^8.15.0"
     }
-  }
+}

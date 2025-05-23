@@ -1,10 +1,13 @@
 // frontend/src/utils/api.ts
 import { TestResults } from '../types/testTypes';
 
-// API 基礎 URL 配置
-const API_BASE_URL = process.env.NODE_ENV === 'production' 
-  ? '/api'  // 生產環境使用相對路徑
-  : 'http://localhost:5000/api';  // 開發環境使用完整 URL
+// 最簡單的解決方案：直接判斷當前域名
+const isLocalhost = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1';
+
+const API_BASE_URL = isLocalhost 
+  ? 'http://localhost:5000/api'  // 開發環境
+  : '/api';  // 生產環境使用相對路徑
 
 // 定義測試結果資料介面
 interface TestResultData {
